@@ -2,30 +2,30 @@ const express = require("express");
 const router = express.Router();
 
 // Controller
-const controllerClients = require("../../controllers/clientController");
+const controllerClient = require("../../controllers/clientController");
 
 // @routes POST api/clients
 // @description Create a client
-router.post("/", controllerClients.create);
+router.post("/", controllerClient.create);
 
 // @routes GET api/clients
 // @description Get All clients
-router.get("/", controllerClients.findAll);
+router.get("/", controllerClient.findAll);
 
 // @routes GET api/clients/:id
 // @description Get a client
-router.get("/:id", controllerClients.findOne);
+router.get("/:id", controllerClient.findOne);
 
 // @routes UPDATE api/clients/:id
 // @description Update a client
-router.patch("/:id", controllerClients.update);
+router.patch("/:id", controllerClient.update);
 
 // @routes DELETE api/clients/:id
 // @description Delete a client
-router.delete("/:id", controllerClients.remove);
+router.delete("/:id", controllerClient.remove);
 
 // @routes DELETE ALL api/clients
 // @description Delete all clients
-router.delete("/", controllerClients.removeAll);
+router.delete("/", controllerClient.removeAll);
 
 module.exports = router;

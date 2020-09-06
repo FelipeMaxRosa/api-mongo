@@ -1,18 +1,20 @@
 const express = require("express");
 const mongoose = require("mongoose");
 const dotenv = require("dotenv");
+const cors = require("cors");
 
-const { MONGO_URI } = require("./database/config");
-const app = express();
 dotenv.config();
+const app = express();
 
 // Routes
 const clientsRoutes = require("./routes/api/clients");
+const usersRoutes = require("./routes/api/users");
 
-// BodyParser Middleware
+// BodyParser and Cors Middleware
+app.use(cors());
 app.use(express.json());
 
-const PORT = process.env.PORT || 5000;
+const { PORT, MONGO_URI } = process.env;
 
 app.get("/", (req, res) => {
   res.send({
@@ -32,7 +34,9 @@ mongoose
 
 // Use Routes
 app.use("/api/clients", clientsRoutes);
+app.use("/api/users", usersRoutes);
 
+// Listen Port
 app.listen(PORT, () => {
   console.log(`Server run at port ${PORT}`);
 });
