@@ -1,0 +1,4 @@
+module.exports = {
+  MONGO_URI:
+    "mongodb+srv://admin:1mitcae2020@cluster0.r7l9u.mongodb.net/xptoclients?retryWrites=true&w=majority",
+};
